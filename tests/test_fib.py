@@ -23,7 +23,7 @@ def test_numbers():
         5: 5
     }
     fibonacci_calculator = Fibonacci()
-    for k, v in tests:
+    for k, v in tests.items():
         if fibonacci_calculator.fib(k) != v:
             assert False
 
