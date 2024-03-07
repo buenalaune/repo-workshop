@@ -1,12 +1,5 @@
-"""CLI interface for repo_workshop project.
-
-Be creative! do whatever you want!
-
-- Install click or typer and create a CLI app
-- Use builtin argparse
-- Start a web application
-- Import things from your .base module
-"""
+import argparse
+from repo_workshop import Fibonacci
 
 
 def main():  # pragma: no cover
@@ -25,6 +18,16 @@ def main():  # pragma: no cover
         * List all available tasks
         * Run an application (Flask, FastAPI, Django, etc.)
     """
-    ##### YOUR CODE HERE #####
-    print("This will do something")
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        'n',
+        type=int,
+        help='Number to compute Fibonacci number for'
+    )
+    args = parser.parse_args()
+    n = args.n
+    fib_calculator = Fibonacci()
+    fib_number = fib_calculator.fib(n)
+    print(f"The fibonacci number of {n} is {fib_number}")
     ##########################
